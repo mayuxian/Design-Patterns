@@ -1,13 +1,12 @@
- import {Mediator} from './Mediator';
-import {OneColleague} from './OneColleague'
- class Application {
-
+import { HouseMediator } from './HouseMediator';
+import {HouseCustomer} from './HouseCustomer'
+class Application {
 
   public main():void {
-     
-    const mediator=new Mediator();
-    const oneColleague=new OneColleague('小明');
-  oneColleague.bind(mediator);
-  mediator.send('有合适您的房子了.',oneColleague);
+    const mediator=new HouseMediator();
+    const colleagueName="小明"
+    const houseCustomer=new HouseCustomer(colleagueName);
+    houseCustomer.bind(mediator);
+    mediator.send(colleagueName,'有合适您的房子了.');
    }
 }
