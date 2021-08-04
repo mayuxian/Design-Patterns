@@ -5,6 +5,11 @@ export  abstract class AbstractMediator{
     const coll=this.colleagueMap.get(name);
     coll?.send(msg)
   };
+  public sendAll(msg:string):void{
+    this.colleagueMap.forEach(coll=>{
+      coll?.send(msg);
+    })
+  }
   public  add(name:string,colleague:AbstractCustomer):void{
     this.colleagueMap.set(name,colleague)
   };
